@@ -17,14 +17,12 @@
 <script>
   // The website runs on the council's own computer behind an address that changes now and then. This page shows it
   // inside itself so visitors keep this permanent address in the address bar; the page they are on is mirrored here
-  // (e.g. /officers). Sign-in and the portal open as their own window (they cannot be shown inside another site).
+  // (e.g. /officers, /portal/members), sign-in and the portal included.
   var SITE = "__SITE__";
   var origin = new URL(SITE).origin;
   var path = location.pathname + location.search + location.hash;
   document.getElementById("go").href = SITE + path;
-  if (/^\/(login|portal|forgot-password|reset-password)(\/|$)/.test(location.pathname)) {
-    location.replace(SITE + path);
-  } else {
+  {
     var f = document.createElement("iframe");
     f.src = SITE + path;
     f.title = "Tau Gamma Phi – Zamboanga del Sur";
